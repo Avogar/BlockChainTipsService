@@ -24,6 +24,12 @@ class TipsService:
     def send_tips_to_employee(self, amount: float, organization_name: str, employee_name: str, review=None):
         pass
 
+    def send_review_to_organization(self, name: str, review=None):
+        pass
+
+    def send_review_to_employee(self, organization_name: str, employee_name: str, review=None):
+        pass
+
     def review_organization(self, name: str, review=None):
         pass
 
