@@ -1,0 +1,253 @@
+{
+    "address": "",
+    "abi": [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "id",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"internalType": "struct EmployeeInfo",
+				"name": "employee_info",
+				"type": "tuple"
+			}
+		],
+		"name": "addEmployeeToOrganization",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "id",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"internalType": "struct EmployeeInfo[]",
+				"name": "employee_infos",
+				"type": "tuple[]"
+			}
+		],
+		"name": "addOrganization",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "employee_id",
+				"type": "string"
+			}
+		],
+		"name": "removeEmployeeFromOrganization",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			}
+		],
+		"name": "removeOrganization",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "employee_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "review",
+				"type": "string"
+			}
+		],
+		"name": "sendEmployeeReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "review",
+				"type": "string"
+			}
+		],
+		"name": "sendOrganizationReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "employee_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "review",
+				"type": "string"
+			}
+		],
+		"name": "sendTipsToEmployee",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "review",
+				"type": "string"
+			}
+		],
+		"name": "sendTipsToOrganization",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			}
+		],
+		"name": "getAllEmployeeInOrganization",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "employees",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllorganizations",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "rganizations_list",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "employee_id",
+				"type": "string"
+			}
+		],
+		"name": "getEmployeeReviews",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "reviews",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			}
+		],
+		"name": "getOrganizationReviews",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "reviews",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+}
