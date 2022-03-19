@@ -14,6 +14,9 @@ class TipsService:
 
     def add_organization(self, organization: Tuple[str, str], employees: Dict[str, str]):
         pass
+    
+    def add_employee(self, organization: str, employee: Tuple[str, str]):
+        pass
 
     def send_tips_to_organization(self, amount: float, name: str, review=None):
         pass
