@@ -30,12 +30,6 @@ class TipsService:
     def send_review_to_employee(self, organization_name: str, employee_name: str, review=None):
         pass
 
-    def review_organization(self, name: str, review=None):
-        pass
-
-    def review_employee(self, organization_name: str, employee_name: str, review=None):
-        pass
-
     def remove_organization(self, name: str):
         pass
 
