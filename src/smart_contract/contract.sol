@@ -23,7 +23,7 @@ struct Employee {
     string[] reviews;
  }
 
- struct EmployeeInfo {
+ struct Info {
      string id;
      address addr;
  }
@@ -32,12 +32,14 @@ contract TipsService {
 
     mapping (string => Organization) organizations;
 
-    function addOrganization(string memory organization_id, EmployeeInfo[] memory employee_infos) public {
+    function addOrganization(Info memory organization_info, Info[] memory employee_infos) public {
+        Organization storage org = organizations[organization_info.id];
+        org.addr = organization_info.addr;
         for (uint i = 0; i < employee_infos.length; i++) {
-            EmployeeInfo memory info = employee_infos[i];
+            Info memory info = employee_infos[i];
             Employee memory new_employee;
             new_employee.addr = info.addr;
-            organizations[organization_id].employees[info.id] = new_employee;
+            org.employees[info.id] = new_employee;
         }
     }
 
@@ -45,7 +47,7 @@ contract TipsService {
         delete organizations[organization_id];
     }
 
-    function addEmployeeToOrganization(string memory organization_id, EmployeeInfo memory employee_info) public {
+    function addEmployeeToOrganization(string memory organization_id, Info memory employee_info) public {
         Employee memory new_employee;
         new_employee.addr = employee_info.addr;
         organizations[organization_id].employees[employee_info.id] = new_employee;

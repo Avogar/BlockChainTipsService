@@ -1,5 +1,5 @@
 {
-    "address": "0x2ba8cca3c6557f87546722dc6dd910348413fc0fc55912ae49115c49f4d5bf5a",
+    "address": "",
     "abi": [
 	{
 		"inputs": [
@@ -21,7 +21,7 @@
 						"type": "address"
 					}
 				],
-				"internalType": "struct EmployeeInfo",
+				"internalType": "struct Info",
 				"name": "employee_info",
 				"type": "tuple"
 			}
@@ -34,9 +34,21 @@
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "organization_id",
-				"type": "string"
+				"components": [
+					{
+						"internalType": "string",
+						"name": "id",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"internalType": "struct Info",
+				"name": "organization_info",
+				"type": "tuple"
 			},
 			{
 				"components": [
@@ -51,7 +63,7 @@
 						"type": "address"
 					}
 				],
-				"internalType": "struct EmployeeInfo[]",
+				"internalType": "struct Info[]",
 				"name": "employee_infos",
 				"type": "tuple[]"
 			}
