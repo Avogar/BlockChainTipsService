@@ -30,6 +30,8 @@ class CustomerHandler:
 
     def send_review_to_organization(self):
         path_to_qr_code = self._read_organization_qr_code()
+        if len(path_to_qr_code) == 0:
+            return
         organization_info = self.qr_manager.qr_to_organization_info(path_to_qr_code)
         if organization_info is None:
             return
@@ -42,6 +44,8 @@ class CustomerHandler:
 
     def send_review_to_employee(self):
         path_to_qr_code = self._read_employee_qr_code()
+        if len(path_to_qr_code) == 0:
+            return
         employee_info = self.qr_manager.qr_to_employee_info(path_to_qr_code)
         if employee_info is None:
             return
@@ -97,10 +101,10 @@ class CustomerHandler:
         return self.private_key
 
     def _read_organization_qr_code(self):
-        return input("Please enter path to QR code from organization: ")
+        return input("Please enter path to QR code from organization (empty to exit): ")
 
     def _read_employee_qr_code(self):
-        return input("Please enter path to QR code from employee: ")
+        return input("Please enter path to QR code from employee (empty to exit): ")
 
     def _read_organization_review(self):
         return input("Please enter organization review: ")

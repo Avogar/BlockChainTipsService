@@ -1,6 +1,6 @@
 from enum import Enum
 
-ENCRYPTION_KEY = b'1fa7kkp9'
+ENCRYPTION_KEY = '1fa7kkp26uNDLqv3S_WW7WjYZXonmygy2ZE8V9VOsBM='
 DEFAULT_QR_FILENAME = "qr.png"
 
 ORGANIZATION_TYPE = "organization"
@@ -19,3 +19,4 @@ class UserType(Enum):
     CUSTOMER = 1
     ORGANIZATION = 2
     EMPLOYEE = 3
+    NONE = 0

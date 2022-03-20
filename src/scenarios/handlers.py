@@ -7,25 +7,30 @@ from src.scenarios.organization_handler import OrganizationHandler
 
 def handle_user():
     user_type = None
-    while not is_number_in_bounds(user_type, 1, 3):
-        user_type = input("Select one number. Who are you?\n"
-                          "1) Customer\n"
-                          "2) Organization\n"
-                          "3) Employee\n")
-    user_type = UserType(int(user_type))
-    if user_type == UserType.CUSTOMER:
-        handle_customer()
-    elif user_type == UserType.ORGANIZATION:
-        handle_organization()
-    elif user_type == UserType.EMPLOYEE:
-        handle_employee()
+    while True:
+        while not is_number_in_bounds(user_type, 0, 3):
+            user_type = input("Select one number. Who are you?\n"
+                              "1) Customer\n"
+                              "2) Organization\n"
+                              "3) Employee\n"
+                              "0) Exit\n")
+
+        user_type = UserType(int(user_type))
+        if user_type == UserType.NONE:
+            break
+        elif user_type == UserType.CUSTOMER:
+            handle_customer()
+        elif user_type == UserType.ORGANIZATION:
+            handle_organization()
+        elif user_type == UserType.EMPLOYEE:
+            handle_employee()
 
 
 def handle_customer():
     handler = CustomerHandler()
     while True:
         action_type = None
-        while not is_number_in_bounds(action_type, 0, 3):
+        while not is_number_in_bounds(action_type, 0, 10):
             action_type = input("Select one number. What do you want to do?\n"
                                 "1) Get the list of all organizations\n"
                                 "2) Get the list of employees in organization\n"
@@ -68,7 +73,7 @@ def handle_organization():
     handler = OrganizationHandler()
     while True:
         action_type = None
-        while not is_number_in_bounds(action_type, 0, 7):
+        while not is_number_in_bounds(action_type, 0, 8):
             action_type = input("Select one number. What do you want to do?\n"
                                 "1) Change organization name\n"
                                 "2) Change organization address\n"
