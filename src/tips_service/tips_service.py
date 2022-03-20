@@ -9,11 +9,10 @@ from src.common.smart_service_metadata import CONTRACT_METADATA
 
 class TipsService:
     def __init__(self, http_provider_url: str, contract_info):
-        with open(contract_json_file) as file:
-            self.web3 = Web3(Web3.HTTPProvider(http_provider_url))
+        self.web3 = Web3(Web3.HTTPProvider(http_provider_url))
 
-            self.contract = self.web3.eth.contract(address=contract_info["address"], abi=contract_info["abi"])
-            self.encryptor = Encryptor()
+        self.contract = self.web3.eth.contract(address=contract_info["address"], abi=contract_info["abi"])
+        self.encryptor = Encryptor()
 
     def add_organization(self, organization: Tuple[str, str], employees: List[Tuple[str, str]], address: str, private_key: str):
         organization = (self.encryptor.encode(organization[0]), organization[1])
@@ -29,14 +28,14 @@ class TipsService:
         tx = self.contract.functions.addEmployeeToOrganization(organization_name, employee).buildTransaction(tx_properties)
         self._sign_and_send_tx(tx, private_key)
 
-    def send_tips_to_organization(self, amount: float, organization_name: str, action_id: str, address: str, private_key: str, review=""):
+    def send_tips_to_organization(self, amount: float, organization_name: str, review: str, action_id: str, address: str, private_key: str):
         organization_name = self.encryptor.encode(organization_name)
         review = self.encryptor.encode(review)
         tx_properties = self._get_tx_properties(address, value=amount)
         tx = self.contract.functions.sendTipsToOrganization(organization_name, review, action_id).buildTransaction(tx_properties)
         self._sign_and_send_tx(tx, private_key)
 
-    def send_tips_to_employee(self, amount: float, organization_name: str, employee_name: str, action_id: str, address: str, private_key: str, review=""):
+    def send_tips_to_employee(self, amount: float, organization_name: str, employee_name: str, review: str, action_id: str, address: str, private_key: str):
         organization_name = self.encryptor.encode(organization_name)
         employee_name = self.encryptor.encode(employee_name)
         review = self.encryptor.encode(review)
@@ -95,7 +94,12 @@ class TipsService:
 
     def _sign_and_send_tx(self, tx, private_key: str):
         signed_txn = self.web3.eth.account.signTransaction(tx, private_key=private_key)
-        self.web3.eth.sendRawTransaction(signed_txn.rawTransaction)
+        try:
+            tx_hex = self.web3.eth.sendRawTransaction(signed_txn.rawTransaction).hex()
+            print("Transaction id: ", tx_hex)
+        except Exception:
+            print("Unable to send transaction")
+
 
 
 def get_tips_service():

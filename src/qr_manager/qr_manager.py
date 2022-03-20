@@ -21,10 +21,13 @@ class QRManager:
         Keyword arguments:
             file_name -- path to resulting file
         """
+        id = self._hash_string(str(time.time_ns()))
+
         qr_data = dict()
         qr_data[TYPE_QR_FIELD] = ORGANIZATION_TYPE
         qr_data[ORG_NAME_QR_FIELD] = self._hash_string(organization_name)
-        qr_data[ID_QR_FIELD] = self._hash_string(str(time.time_ns()))
+        qr_data[ID_QR_FIELD] = id
+        qr_data[CHECKSUM_FIELD] = self._hash_string(organization_name + id)
         self._info_to_qr(qr_data, file_name)
 
     def employee_info_to_qr(self, organization_name: str, employee_name: str, file_name: str) -> None:
@@ -33,11 +36,14 @@ class QRManager:
         Keyword arguments:
             file_name -- path to resulting file
         """
+        id = self._hash_string(str(time.time_ns()))
+
         qr_data = dict()
         qr_data[TYPE_QR_FIELD] = EMPLOYEE_TYPE
-        qr_data[ORG_NAME_QR_FIELD] = self._hash_string(organization_name)
-        qr_data[EMPLOYEE_NAME_QR_FIELD] = self._hash_string(employee_name)
-        qr_data[ID_QR_FIELD] = self._hash_string(str(time.time_ns()))
+        qr_data[ORG_NAME_QR_FIELD] = organization_name
+        qr_data[EMPLOYEE_NAME_QR_FIELD] = employee_name
+        qr_data[ID_QR_FIELD] = id
+        qr_data[CHECKSUM_FIELD] = self._hash_string(organization_name + employee_name + id)
 
         self._info_to_qr(qr_data, file_name)
 
@@ -46,6 +52,11 @@ class QRManager:
         organization_info = self._qr_to_info(file_name)
         if organization_info is None:
             return None
+        checksum = self._hash_string(organization_info[ORGANIZATION_TYPE] + organization_info[ID_QR_FIELD])
+        if checksum != organization_info[CHECKSUM_FIELD]:
+            print("The checksums don't match, maybe the QR code is corrupted.")
+            return None
+
         qr_code_type = self._get_qr_type_from_info(organization_info)
         if qr_code_type != ORGANIZATION_TYPE:
             print("Incorrect qr code type {} != {}, in file {}".format(qr_code_type, ORGANIZATION_TYPE, file_name))
@@ -56,6 +67,10 @@ class QRManager:
         """Transforms QR-code into employee info"""
         employee_info = self._qr_to_info(file_name)
         if employee_info is None:
+            return None
+        checksum = self._hash_string(employee_info[ORGANIZATION_TYPE] + employee_info[EMPLOYEE_NAME_QR_FIELD] + employee_info[ID_QR_FIELD])
+        if checksum != employee_info[CHECKSUM_FIELD]:
+            print("The checksums don't match, maybe the QR code is corrupted.")
             return None
         qr_code_type = self._get_qr_type_from_info(employee_info)
         if qr_code_type != EMPLOYEE_TYPE:
