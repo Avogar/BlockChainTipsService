@@ -1,8 +1,4 @@
-from web3 import Web3
-from web3.middleware import geth_poa_middleware
-import json
-import hashlib
+from src.scenarios.handlers import handle_user
 
 if __name__ == "__main__":
-    print("Hello world!")
-
+    handle_user()
