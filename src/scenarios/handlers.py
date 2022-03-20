@@ -1,5 +1,5 @@
 from src.common.conf import *
-from src.common.methods import *
+from src.common.utils import *
 from src.scenarios.employee_handler import EmployeeHandler
 
 

@@ -1,5 +1,5 @@
 {
-    "address": "0x6d306D1106A8A010B5d7715a991D196eeA65CE78",
+    "address": "0xF510dB032d64A336CE698CA34a0DBcf4215105C3",
     "abi": [
 	{
 		"inputs": [
@@ -227,7 +227,7 @@
 	},
 	{
 		"inputs": [],
-		"name": "getAllorganizations",
+		"name": "getAllOrganizations",
 		"outputs": [
 			{
 				"internalType": "string[]",

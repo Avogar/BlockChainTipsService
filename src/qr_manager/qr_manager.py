@@ -3,17 +3,17 @@ import time
 from hashlib import sha1
 from typing import Optional, Dict
 
-from cryptography.fernet import Fernet
 import qrcode
 import cv2
 from pyzbar.pyzbar import decode
 
 from src.common.conf import *
+from src.common.encryptor import Encryptor
 
 
 class QRManager:
     def __init__(self):
-        self.encryptor = Fernet(ENCRYPTION_KEY.encode())
+        self.encryptor = Encryptor()
 
     def organization_info_to_qr(self, organization_name: str, file_name: str) -> None:
         """ Transforms organization name into a QR-code
@@ -65,7 +65,7 @@ class QRManager:
 
     def _info_to_qr(self, info: Dict[str, str], file_name: str) -> None:
         raw_data = json.dumps(info)
-        encrypted_data = self.encryptor.encrypt(raw_data.encode())
+        encrypted_data = self.encryptor.encode(raw_data)
 
         img = qrcode.make(encrypted_data)
         img.save(file_name)
@@ -78,7 +78,7 @@ class QRManager:
                 print("No QR-code detected in file {}.".format(file_name))
                 return None
             data = data[0].data
-            decrypted_data = self.encryptor.decrypt(data)
+            decrypted_data = self.encryptor.decode(data)
             info = json.loads(decrypted_data)
             return info
         except Exception as e:
