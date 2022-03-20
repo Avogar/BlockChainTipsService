@@ -1,5 +1,5 @@
 {
-    "address": "",
+    "address": "0x6d306D1106A8A010B5d7715a991D196eeA65CE78",
     "abi": [
 	{
 		"inputs": [
@@ -47,7 +47,7 @@
 					}
 				],
 				"internalType": "struct Info",
-				"name": "organization_info",
+				"name": "org_info",
 				"type": "tuple"
 			},
 			{
@@ -120,6 +120,11 @@
 				"internalType": "string",
 				"name": "review",
 				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "action_id",
+				"type": "string"
 			}
 		],
 		"name": "sendEmployeeReview",
@@ -137,6 +142,11 @@
 			{
 				"internalType": "string",
 				"name": "review",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "action_id",
 				"type": "string"
 			}
 		],
@@ -161,6 +171,11 @@
 				"internalType": "string",
 				"name": "review",
 				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "action_id",
+				"type": "string"
 			}
 		],
 		"name": "sendTipsToEmployee",
@@ -178,6 +193,11 @@
 			{
 				"internalType": "string",
 				"name": "review",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "action_id",
 				"type": "string"
 			}
 		],
@@ -198,7 +218,7 @@
 		"outputs": [
 			{
 				"internalType": "string[]",
-				"name": "employees",
+				"name": "",
 				"type": "string[]"
 			}
 		],
@@ -211,7 +231,7 @@
 		"outputs": [
 			{
 				"internalType": "string[]",
-				"name": "rganizations_list",
+				"name": "",
 				"type": "string[]"
 			}
 		],
