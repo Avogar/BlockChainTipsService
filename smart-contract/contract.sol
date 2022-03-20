@@ -278,7 +278,7 @@ contract TipsService {
         return organizations.get(organization_id).employees.get(employee_id).reviews;
     }
 
-    function getAllorganizations() public view returns (string[] memory) {
+    function getAllOrganizations() public view returns (string[] memory) {
         return organizations.getKeys();
     }
 
