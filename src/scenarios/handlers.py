@@ -1,6 +1,7 @@
 from src.common.conf import *
 from src.common.utils import *
 from src.scenarios.employee_handler import EmployeeHandler
+from src.scenarios.customer_handler import CustomerHandler
 from src.scenarios.organization_handler import OrganizationHandler
 
 
@@ -21,7 +22,44 @@ def handle_user():
 
 
 def handle_customer():
-    pass
+    handler = CustomerHandler()
+    while True:
+        action_type = None
+        while not is_number_in_bounds(action_type, 0, 3):
+            action_type = input("Select one number. What do you want to do?\n"
+                                "1) Get the list of all organizations\n"
+                                "2) Get the list of employees in organization\n"
+                                "3) Get the list of organization reviews\n"
+                                "4) Get the list of employee reviews\n"
+                                "5) Send an organization review\n"
+                                "6) Send an employee review\n"
+                                "7) Send a tip to an organization\n"
+                                "8) Send a tip to an employee\n"
+                                "9) Change my address\n"
+                                "10) Change my private key\n"
+                                "0) Exit\n")
+
+        action_type = int(action_type)
+        if action_type == 1:
+            handler.get_all_organizations()
+        elif action_type == 2:
+            handler.get_all_employees()
+        elif action_type == 3:
+            handler.get_organization_reviews()
+        elif action_type == 4:
+            handler.get_employee_reviews()
+        elif action_type == 5:
+            handler.send_review_to_organization()
+        elif action_type == 6:
+            handler.send_review_to_employee()
+        elif action_type == 7:
+            handler.send_tips_to_organization()
+        elif action_type == 8:
+            handler.send_tips_to_employee()
+        elif action_type == 9:
+            handler.read_address()
+        elif action_type == 10:
+            handler.read_private_key()
 
 
 def handle_organization():

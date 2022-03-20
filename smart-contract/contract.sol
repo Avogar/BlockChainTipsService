@@ -224,15 +224,18 @@ contract TipsService {
     }
 
     function removeOrganization(string memory organization_id) public {
+        require(organizations.get(organization_id).addr == msg.sender, "Cannot remove an organization, permision denied");
         organizations.remove(organization_id);
     }
 
     function addEmployeeToOrganization(string memory organization_id, Info memory employee_info) public {
+        require(organizations.get(organization_id).addr == msg.sender, "Cannot add employee to an organization, permision denied");
         organizations.get(organization_id).employees.add(employee_info.id);
         organizations.get(organization_id).employees.get(employee_info.id).addr = employee_info.addr;
     }
 
     function removeEmployeeFromOrganization(string memory organization_id, string memory employee_id) public {
+        require(organizations.get(organization_id).addr == msg.sender, "Cannot remove an employee from an organization, permision denied");
         organizations.get(organization_id).employees.remove(employee_id);
     }
 
@@ -278,7 +281,7 @@ contract TipsService {
         return organizations.get(organization_id).employees.get(employee_id).reviews;
     }
 
-    function getAllorganizations() public view returns (string[] memory) {
+    function getAllOrganizations() public view returns (string[] memory) {
         return organizations.getKeys();
     }
 
