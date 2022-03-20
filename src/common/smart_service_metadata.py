@@ -1,4 +1,4 @@
-{
+CONTRACT_METADATA = {
     "address": "0xF510dB032d64A336CE698CA34a0DBcf4215105C3",
     "abi": [
 	{
