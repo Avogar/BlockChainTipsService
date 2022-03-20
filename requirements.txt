@@ -1,0 +1,8 @@
+qrcode
+opencv-python
+zbar-py
+qrtools
+pypng
+pillow
+cryptography
+web3
