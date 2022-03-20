@@ -1,5 +1,5 @@
 CONTRACT_METADATA = {
-    "address": "0xF510dB032d64A336CE698CA34a0DBcf4215105C3",
+    "address": "0x8AC9a48D96b29Bc8c565A8699b1D1B4D7e319CC7",
     "abi": [
 	{
 		"inputs": [
@@ -71,6 +71,81 @@ CONTRACT_METADATA = {
 		"name": "addOrganization",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			}
+		],
+		"name": "getAllEmployeeInOrganization",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getAllOrganizations",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "employee_id",
+				"type": "string"
+			}
+		],
+		"name": "getEmployeeReviews",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "reviews",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "organization_id",
+				"type": "string"
+			}
+		],
+		"name": "getOrganizationReviews",
+		"outputs": [
+			{
+				"internalType": "string[]",
+				"name": "reviews",
+				"type": "string[]"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -204,81 +279,6 @@ CONTRACT_METADATA = {
 		"name": "sendTipsToOrganization",
 		"outputs": [],
 		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "organization_id",
-				"type": "string"
-			}
-		],
-		"name": "getAllEmployeeInOrganization",
-		"outputs": [
-			{
-				"internalType": "string[]",
-				"name": "",
-				"type": "string[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "getAllOrganizations",
-		"outputs": [
-			{
-				"internalType": "string[]",
-				"name": "",
-				"type": "string[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "organization_id",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "employee_id",
-				"type": "string"
-			}
-		],
-		"name": "getEmployeeReviews",
-		"outputs": [
-			{
-				"internalType": "string[]",
-				"name": "reviews",
-				"type": "string[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "organization_id",
-				"type": "string"
-			}
-		],
-		"name": "getOrganizationReviews",
-		"outputs": [
-			{
-				"internalType": "string[]",
-				"name": "reviews",
-				"type": "string[]"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	}
 ]
