@@ -1,13 +1,18 @@
-from cryptography.fernet import Fernet
+from Crypto.Cipher import DES
 from src.common.conf import *
 
 
 class Encryptor:
     def __init__(self):
-        self.impl = Fernet(ENCRYPTION_KEY.encode())
+        self.impl = DES.new(ENCRYPTION_KEY, DES.MODE_ECB)
 
-    def encode(self, data: str) -> str:
-        return self.impl.encrypt(data.encode()).decode()
+    def encode(self, data):
+        return self.impl.encrypt(self._pad(data.strip().encode())).decode()
 
-    def decode(self, data: str) -> str:
-        return self.impl.decrypt(data.encode()).decode()
+    def decode(self, data):
+        return self.impl.decrypt(data.encode()).strip().decode()
+
+    def _pad(self, text):
+        while len(text) % 8 != 0:
+            text += b' '
+        return text

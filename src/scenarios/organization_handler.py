@@ -1,19 +1,17 @@
 import json
 
 from src.common.conf import *
-from src.common.smart_service_metadata import CONTRACT_METADATA
 from src.common.utils import *
 from src.qr_manager.qr_manager import QRManager
-from src.tips_service.tips_service import TipsService
+from src.tips_service.tips_service import get_tips_service
 
 
 class OrganizationHandler:
     def __init__(self):
-        bc_http_provider = input("Enter your blockchain http provider: ")
         self.organization_name = input("Please enter your organization name: ")
         self.organization_address = input("Please enter your organization wallet address: ")
         self.organization_private_key = input("Please enter your organization private key: ")
-        self.tips_service = TipsService(bc_http_provider, CONTRACT_METADATA)
+        self.tips_service = get_tips_service()
         self.qr_gen = QRManager()
 
     def generate_new_qr_code(self, file_name: str):

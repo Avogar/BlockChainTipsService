@@ -40,7 +40,9 @@ def handle_customer():
                                 "0) Exit\n")
 
         action_type = int(action_type)
-        if action_type == 1:
+        if action_type == 0:
+            break
+        elif action_type == 1:
             handler.get_all_organizations()
         elif action_type == 2:
             handler.get_all_employees()
@@ -70,11 +72,12 @@ def handle_organization():
             action_type = input("Select one number. What do you want to do?\n"
                                 "1) Change organization name\n"
                                 "2) Change organization address\n"
-                                "3) Generate new QR-code\n"
-                                "4) Add organization\n"
-                                "5) Add employee\n"
-                                "6) Remove organization\n"
-                                "7) Remove employee\n"
+                                "3) Change organization private key\n"
+                                "4) Generate new QR-code\n"
+                                "5) Add organization\n"
+                                "6) Add employee\n"
+                                "7) Remove organization\n"
+                                "8) Remove employee\n"
                                 "0) Exit\n")
         action_type = int(action_type)
         if action_type == 0:
@@ -84,15 +87,17 @@ def handle_organization():
         elif action_type == 2:
             handler.organization_address = input("Enter your organization address: ")
         elif action_type == 3:
+            handler.organization_private_key = input("Enter your organization private key: ")
+        elif action_type == 4:
             file_name = input("Enter desired filename for QR-code (leave empty for default): ")
             handler.generate_new_qr_code(file_name)
-        elif action_type == 4:
-            handler.add_organization()
         elif action_type == 5:
-            handler.add_employee()
+            handler.add_organization()
         elif action_type == 6:
-            handler.remove_organization()
+            handler.add_employee()
         elif action_type == 7:
+            handler.remove_organization()
+        elif action_type == 8:
             handler.remove_employee()
 
 

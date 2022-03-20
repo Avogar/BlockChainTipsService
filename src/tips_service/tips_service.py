@@ -16,7 +16,8 @@ class TipsService:
 
     def add_organization(self, organization: Tuple[str, str], employees: List[Tuple[str, str]], address: str, private_key: str):
         organization = (self.encryptor.encode(organization[0]), organization[1])
-        employees = map(lambda x: (self.encryptor.encode(x[0]), x[1]))
+        print(organization)
+        employees = list(map(lambda x: (self.encryptor.encode(x[0]), x[1]), employees))
         tx_properties = self._get_tx_properties(address)
         tx = self.contract.functions.addOrganization(organization, employees).buildTransaction(tx_properties)
         self._sign_and_send_tx(tx, private_key)
@@ -59,7 +60,9 @@ class TipsService:
         self._sign_and_send_tx(tx, private_key)
 
     def remove_organization(self, organization_name: str, address: str, private_key: str):
+        print(organization_name)
         organization_name = self.encryptor.encode(organization_name)
+        print(organization_name)
         tx_properties = self._get_tx_properties(address)
         tx = self.contract.functions.removeOrganization(organization_name).buildTransaction(tx_properties)
         self._sign_and_send_tx(tx, private_key)
@@ -84,6 +87,8 @@ class TipsService:
         return list(map(lambda x: self.encryptor.decode(x), organizations))
 
     def get_all_employees(self, organization_name: str):
+        organization_name = self.encryptor.encode(organization_name)
+        print(organization_name)
         employees = self.contract.functions.getAllEmployeeInOrganization(organization_name).call()
         return list(map(lambda x: self.encryptor.decode(x), employees))
 
