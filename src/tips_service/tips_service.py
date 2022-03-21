@@ -94,7 +94,7 @@ class TipsService:
 
     def _get_tx_properties(self, address: str, value=0.):
         nonce = self.web3.eth.getTransactionCount(address)
-        return {'gas': 600000, 'gasPrice': self.web3.toWei('10', 'gwei'), 'from': address, 'nonce': nonce,
+        return {'gas': 1000000, 'gasPrice': self.web3.toWei('10', 'gwei'), 'from': address, 'nonce': nonce,
                 'value': self.web3.toWei(value, "ether")}
 
     def _sign_and_send_tx(self, tx, private_key: str):

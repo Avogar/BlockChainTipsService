@@ -14,6 +14,7 @@ def handle_user():
                               "2) Organization\n"
                               "3) Employee\n"
                               "0) Exit\n")
+            print()
 
         user_type = UserType(int(user_type))
         if user_type == UserType.NONE:
@@ -24,6 +25,7 @@ def handle_user():
             handle_organization()
         elif user_type == UserType.EMPLOYEE:
             handle_employee()
+        print()
 
 
 def handle_customer():
@@ -43,6 +45,7 @@ def handle_customer():
                                 "9) Change my address\n"
                                 "10) Change my private key\n"
                                 "0) Exit\n")
+            print()
 
         action_type = int(action_type)
         if action_type == 0:
@@ -67,6 +70,7 @@ def handle_customer():
             handler.read_address()
         elif action_type == 10:
             handler.read_private_key()
+        print()
 
 
 def handle_organization():
@@ -84,6 +88,7 @@ def handle_organization():
                                 "7) Remove organization\n"
                                 "8) Remove employee\n"
                                 "0) Exit\n")
+            print()
         action_type = int(action_type)
         if action_type == 0:
             break
@@ -104,6 +109,7 @@ def handle_organization():
             handler.remove_organization()
         elif action_type == 8:
             handler.remove_employee()
+        print()
 
 
 def handle_employee():
@@ -116,6 +122,7 @@ def handle_employee():
                                 "2) Change my name\n"
                                 "3) Generate new QR-code\n"
                                 "0) Exit\n")
+            print()
         action_type = int(action_type)
         if action_type == 0:
             break
@@ -126,4 +133,5 @@ def handle_employee():
         elif action_type == 3:
             file_name = input("Enter desired filename for QR-code (leave empty for default): ")
             handler.generate_new_qr_code(file_name)
+        print()
 

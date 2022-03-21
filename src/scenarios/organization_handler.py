@@ -11,6 +11,7 @@ class OrganizationHandler:
         self.organization_name = input("Please enter your organization name: ")
         self.organization_address = input("Please enter your organization wallet address: ")
         self.organization_private_key = input("Please enter your organization private key: ")
+        print()
         self.tips_service = get_tips_service()
         self.qr_gen = QRManager()
 
@@ -27,6 +28,7 @@ class OrganizationHandler:
                                          "2) Import employees from json. Json must be a simple map, where keys are "
                                          "employees' names and values are their wallet addresses \n"
                                          "0) Exit\n")
+            print()
         get_employees_option = int(get_employees_option)
         employees = list()
 
@@ -38,31 +40,37 @@ class OrganizationHandler:
                 if employee_name == '':
                     break
                 employee_address = input("Enter employee's wallet address: ")
+                print()
                 employees.append((employee_name, employee_address))
         elif get_employees_option == 2:
             while True:
-                file_name = input("Enter json file name: ")
+                file_name = input("Enter json file name (leave empty to exit): ")
+                if file_name == '':
+                    break
                 try:
                     with open(file_name) as f:
                         data = json.load(f)
-                        if not isinstance(employees, dict):
-                            print("Json is not a dictionary")
+                        if not isinstance(data, dict):
+                            print("Json is not a dictionary\n")
                             continue
                         employees = data.items()
                     break
                 except Exception as e:
                     print("Failed to open employees file {} with exception: {}".format(file_name, e))
+        print()
         self.tips_service.add_organization((self.organization_name, self.organization_address), employees,
                                            self.organization_address, self.organization_private_key)
 
     def add_employee(self):
         employee_name = input("Enter your employee's name: ")
         employee_address = input("Enter your employee's address: ")
+        print()
         self.tips_service.add_employee(self.organization_name, (employee_name, employee_address),
                                        self.organization_address, self.organization_private_key)
 
     def remove_employee(self):
         employee_name = input("Enter your employee's name: ")
+        print()
         self.tips_service.remove_employee(self.organization_name, employee_name,
                                           self.organization_address, self.organization_private_key)
 
