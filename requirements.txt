@@ -1,3 +1,5 @@
+eth-typing==2.3.0
+eth-utils==1.10.0
 qrcode
 opencv-python
 zbar-py
@@ -6,5 +8,5 @@ qrtools
 pypng
 pillow
 cryptography
-web3
-eth-utils<3,>=2.0.0
+web3==5.28.0
+
