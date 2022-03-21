@@ -1,8 +1,10 @@
 qrcode
 opencv-python
 zbar-py
+pyzbar
 qrtools
 pypng
 pillow
 cryptography
 web3
+eth-utils<3,>=2.0.0
