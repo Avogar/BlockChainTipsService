@@ -9,7 +9,7 @@ This is a Blockhain based tips service. It is based on smart contracts. It can b
 - Adding organizations and employees to smart contract
 - Generating QR-codes for customers to send their tips/reviews
 - Sending tips to organizations or employees using QR-codes
-- Reviewing organizations or an employees usins QR-codes
+- Reviewing organizations or an employees using QR-codes
 - Ability to get the list of all reviews for specific employee or organization
 
 ## Installation
