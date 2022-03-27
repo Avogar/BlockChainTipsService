@@ -23,7 +23,7 @@ cd BlockChainTipsService
 
 sudo docker build . -t tips:latest
 
-sudo docker run -it tips
+sudo docker run -it tips:latest
 ```
 
 ## Using service
