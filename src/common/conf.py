@@ -12,6 +12,8 @@ EMPLOYEE_NAME_QR_FIELD = "employee_name"
 ID_QR_FIELD = "id"
 CHECKSUM_FIELD = "checksum"
 
+QR_CODES_FOLDER = "qr_codes"
+
 PROVIDER_URL = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"
 
 

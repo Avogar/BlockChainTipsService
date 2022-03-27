@@ -1,10 +1,11 @@
 import json
 import time
-from hashlib import sha1
-from typing import Optional, Dict
-
 import qrcode
 import cv2
+import os
+
+from hashlib import sha1
+from typing import Optional, Dict
 from pyzbar.pyzbar import decode
 
 from src.common.conf import *
@@ -14,6 +15,8 @@ from src.common.encryptor import Encryptor
 class QRManager:
     def __init__(self):
         self.encryptor = Encryptor()
+        if not os.path.exists(QR_CODES_FOLDER):
+            os.makedirs(directory)
 
     def organization_info_to_qr(self, organization_name: str, file_name: str) -> None:
         """ Transforms organization name into a QR-code
@@ -83,11 +86,11 @@ class QRManager:
         encrypted_data = self.encryptor.encode(raw_data)
 
         img = qrcode.make(encrypted_data)
-        img.save(file_name)
+        img.save(QR_CODES_FOLDER + '/' + file_name)
 
     def _qr_to_info(self, file_name: str) -> Optional[Dict[str, str]]:
         try:
-            qr = cv2.imread(file_name)
+            qr = cv2.imread(QR_CODES_FOLDER + '/' + file_name)
             data = decode(qr)
             if len(data) == 0:
                 print("No QR-code detected in file {}.".format(file_name))
