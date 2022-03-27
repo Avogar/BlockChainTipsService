@@ -28,9 +28,13 @@ sudo docker build . -t tips:latest
 sudo docker run -it tips:latest
 ```
 
+## Smart contract
+
+We deploted our smart contract in Rinekby Testnet Network. You can look at it here: https://rinkeby.etherscan.io/search?f=0&q=0x973cFFcBd1c941A0d6341A4528bD635351e2dF5f
+
 ## Using service
 
-Our app is an interactive python script that interacts with our smart contract by calling its functions with the required arguments. The app can be run in three modes, each with its own set of available actions:
+Our app is an interactive python script that interacts with our smart contract by calling its functions with the required arguments. For most actions with our service, you will need your crypto wallet in the Rinkeby Test network, you can create it using [Metamask](https://metamask.io/). The app can be run in three modes, each with its own set of available actions:
 
 ### Customer mode
 The following actions are available:
@@ -48,6 +52,10 @@ Every modification to your organization in the contract can be made only if it i
 
 ### Employee mode:
 Here you can only generate your new personal QR-code.  Remember that you need a new one for each customer.
+
+## Cryptography and data storing
+
+All sensitive information that is sent to our smart contract and stored in it (the list organization names and their employees) is encrypted using symmetric encryption. The data in our QR codes is also encrypted to prevent extracting sensitive information from it using external tools.
 
 ## Example run
 Here is an example run where we leave a review for several employees:
