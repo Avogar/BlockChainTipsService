@@ -31,7 +31,7 @@ sudo docker run -v <desired_path_to_store_qr_codes>:/tips-service/qr_codes -it t
 
 ## Smart contract
 
-We deployed our smart contract in Rinekby Testnet Network. You can look at it [here](https://rinkeby.etherscan.io/search?f=0&q=0x973cFFcBd1c941A0d6341A4528bD635351e2dF5f).
+We deployed our smart contract in Rinekby Testnet Network. You can look at it [here](https://rinkeby.etherscan.io/search?f=0&q=0x0daE18c6bAFadDcA275cF18B8138fA01A44d078d).
 
 The code of the smart contract is in file `smart-contract/contract.sol`
 

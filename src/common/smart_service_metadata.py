@@ -1,5 +1,5 @@
 CONTRACT_METADATA = {
-    "address": "0x973cFFcBd1c941A0d6341A4528bD635351e2dF5f",
+    "address": "0x0daE18c6bAFadDcA275cF18B8138fA01A44d078d",
     "abi": [
 	{
 		"inputs": [
