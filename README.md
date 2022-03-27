@@ -48,7 +48,7 @@ Every modification to your organization in the contract can be made only if it i
 Here you can only generate your new personal QR-code.  Remember that you need a new one for each customer.
 
 ## Example run
-Here is an example run where we leave a review for one of the employees:
+Here is an example run where we leave a review for several employees:
 ```   
 Select one number. Who are you?
 1) Customer
