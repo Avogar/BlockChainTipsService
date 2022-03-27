@@ -30,7 +30,7 @@ sudo docker run -it tips:latest
 
 ## Smart contract
 
-We deploted our smart contract in Rinekby Testnet Network. You can look at it here: https://rinkeby.etherscan.io/search?f=0&q=0x973cFFcBd1c941A0d6341A4528bD635351e2dF5f
+We deploted our smart contract in Rinekby Testnet Network. You can look at it [here](https://rinkeby.etherscan.io/search?f=0&q=0x973cFFcBd1c941A0d6341A4528bD635351e2dF5f)
 
 ## Using service
 
@@ -149,3 +149,5 @@ Please enter path to QR code from employee (empty to exit): eve.png
 Please enter employee review: "Didn't like her. Please fire. 0/5"
 Transaction id:  0x37e16ed57539f15d8918ba4ffecd298d6cfa8e159796539498c58ef193311152
 ```
+
+You can check all transactions [here](https://rinkeby.etherscan.io/).
