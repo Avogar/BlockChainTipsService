@@ -132,7 +132,25 @@ Please enter employee review: "Very nice girl! Hope to see her some more!"
 Please enter your address: 0x8e7050b2E4269590298a1C81c21387C200Ea41ac
 Please enter your private_key: ea308eca45ee084aae3ec38cf23ddfc3664fc6f0d133f2863f4e82148ae55b84
 Transaction id:  0x2ca570f5e65ba10ecf788fe3a220184ea92dba1fcf8de5492e42c45248b6626c
- 
+
+Select one number. What do you want to do?
+1) Get the list of all organizations
+2) Get the list of employees in organization
+3) Get the list of organization reviews
+4) Get the list of employee reviews
+5) Send an organization review
+6) Send an employee review
+7) Send a tip to an organization
+8) Send a tip to an employee
+9) Change my address
+10) Change my private key
+0) Exit
+4
+
+Please enter organization name: MacRonalds
+Please enter employee name: Alice
+Reviews of the employee Alice of the organization MacRonalds: ['"Very nice girl! Hope to see her some more!"']
+
 Select one number. What do you want to do?
 1) Get the list of all organizations
 2) Get the list of employees in organization
@@ -150,6 +168,28 @@ Select one number. What do you want to do?
 Please enter path to QR code from employee (empty to exit): eve.png
 Please enter employee review: "Didn't like her. Please fire. 0/5"
 Transaction id:  0x37e16ed57539f15d8918ba4ffecd298d6cfa8e159796539498c58ef193311152
+
+Select one number. What do you want to do?
+1) Get the list of all organizations
+2) Get the list of employees in organization
+3) Get the list of organization reviews
+4) Get the list of employee reviews
+5) Send an organization review
+6) Send an employee review
+7) Send a tip to an organization
+8) Send a tip to an employee
+9) Change my address
+10) Change my private key
+0) Exit
+0
+
+
+Select one number. Who are you?
+1) Customer
+2) Organization
+3) Employee
+0) Exit
+0
 ```
 
 You can check all transactions [here](https://rinkeby.etherscan.io/).
