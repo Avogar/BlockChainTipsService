@@ -14,7 +14,7 @@ This is a Blockhain based tips service. It is based on smart contracts. It can b
 
 ## Installation
 
-To run our app you will need docker. You can read how to install it here: https://docs.docker.com/engine/install. 
+To run our app you will need docker. You can read how to install it [here](https://docs.docker.com/engine/install). 
 
 Then do the following steps:
 
@@ -30,7 +30,7 @@ sudo docker run -it tips:latest
 
 ## Smart contract
 
-We deploted our smart contract in Rinekby Testnet Network. You can look at it [here](https://rinkeby.etherscan.io/search?f=0&q=0x973cFFcBd1c941A0d6341A4528bD635351e2dF5f)
+We deploted our smart contract in Rinekby Testnet Network. You can look at it [here](https://rinkeby.etherscan.io/search?f=0&q=0x973cFFcBd1c941A0d6341A4528bD635351e2dF5f).
 
 ## Using service
 
