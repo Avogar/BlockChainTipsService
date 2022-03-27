@@ -14,7 +14,9 @@ This is a Blockhain based tips service. It is based on smart contracts. It can b
 
 ## Installation
 
-The installation of our project is simple, because it uses docker container. Do the following steps:
+To run our app you will need docker. You can read how to install it here: https://docs.docker.com/engine/install. 
+
+Then do the following steps:
 
 ```
 git clone https://github.com/Avogar/BlockChainTipsService.git
