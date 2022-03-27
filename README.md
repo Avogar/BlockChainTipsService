@@ -25,7 +25,7 @@ cd BlockChainTipsService
 
 sudo docker build . -t tips:latest
 
-sudo docker run -it tips:latest
+sudo docker run -v <desired_path_to_store_qr_codes>:/tips-service/qr_codes -it tips:latest
 ```
 
 ## Smart contract
